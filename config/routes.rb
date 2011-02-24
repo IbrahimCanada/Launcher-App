@@ -1,12 +1,19 @@
 LauncherApp::Application.routes.draw do
+
+
   get "pages/home"
+  get "pages/contact"
+  get "pages/about"
 
   root :to => "admins#new"
   
   resources :admins
-  get "pages/contact"
+  resources :sessions, :only => [:new, :create, :destroy]
+  
+  match '/signin', :to => 'sessions#new'
+	match '/signout', :to => 'sessions#destroy'
 
-  get "pages/about"
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

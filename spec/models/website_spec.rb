@@ -12,7 +12,7 @@ describe Website do
 #	end
 	
 	it "should belong to an admin" do
-		@attr = { :email => "admin@example.com", :encrypted_password => "password" }
+		@attr = { :email => "admin@example.com", :password => "password" }
 		admin = Admin.create!(@attr)
 		site = admin.websites.create(:url => "qwerty")
 		site.admin.should_not be_nil

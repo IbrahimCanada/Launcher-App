@@ -1,0 +1,4 @@
+<h1>Welcome <%= @admin.email %>!</h1>
+<% @admin.websites.each do |site| %>
+	<%= "Your website url is: www.launchbox.com/#{site.url}" %>
+<% end %>

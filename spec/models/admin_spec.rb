@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin do
   
  	before(:each) do
- 		@attr = { :email => "admin@example.com", :encrypted_password => "password" }
+ 		@attr = { :email => "admin@example.com", :password => "password" }
 		@admin = Admin.create!(@attr)
 	end
 
@@ -11,8 +11,8 @@ describe Admin do
   	@admin.should respond_to(:email)
   end
   
-  it "should have encrypted_password attribute" do
-  	@admin.should respond_to(:encrypted_password)
+  it "should have password attribute" do
+  	@admin.should respond_to(:password)
   end
   
   it "should respond to (have) websites" do
@@ -20,11 +20,11 @@ describe Admin do
   end
   
   it "should create a new instance given valid attributes" do
-		Admin.create!(@attr)
+		Admin.create!(:email => "admin@example.net", :password => "password")
 	end
 
   it "should require an email" do
-  	no_email_admin = Admin.create(:encrypted_password => "password")
+  	no_email_admin = Admin.create(:password => "password")
   	no_email_admin.should_not be_valid
   end
   

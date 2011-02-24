@@ -15,7 +15,7 @@ describe AdminsController do
   	
   		before(:each) do
         @attr = { :email => "admin@example.com",
-                  :encrypted_password => "password" }
+                  :password => "password" }
       end
       
       it "should create an admin" do
@@ -31,7 +31,7 @@ describe AdminsController do
   	
   		it "should not create an admin without an email" do
   			lambda do
-  				post :create, :admin => { :encrypted_password => "password" }
+  				post :create, :admin => { :password => "password" }
   			end.should_not change(Admin, :count).by(1)
   		end
   		
