@@ -43,7 +43,7 @@ module SessionsHelper
 	private
 	
 		def admin_from_remember_token
-			admin.authenticate_with_salt(*remember_token)
+			Admin.authenticate_with_salt(*remember_token)
 		end
 		
 		def remember_token

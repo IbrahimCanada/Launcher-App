@@ -24,6 +24,9 @@ class Website < ActiveRecord::Base
 	private ###################################
 	
 	def create_url
-		self.url = ('a'..'z').to_a.shuffle[0..5].join
+		begin
+			random_url = ('a'..'z').to_a.shuffle[0..5].join
+		end while Website.find_by_url(random_url) != nil
+		self.url = random_url
 	end
 end

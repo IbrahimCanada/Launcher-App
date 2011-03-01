@@ -1,8 +1,0 @@
-Domain Model:
-
-admin - Atts: email, website 
-user - Atts: email, 
-Website - URL, 
-
-
-Admin user has many sites
