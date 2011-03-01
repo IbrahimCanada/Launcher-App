@@ -1,2 +1,16 @@
-<h1>This is your website: launchbox/<%= "#{@website.url}" %></h1>
-
+<h1>This is the website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %></h1>
+<% if current_admin == @website.admin %>
+	<p>Welcome, <%= "#{@website.admin.email}" %>! This is your landing page, and you can edit it to your liking!</p>
+	<%= link_to "Edit", edit_website_path(@website) %>
+<% end %>
+<% if false %>	
+	<h3>Logo</h3>
+<% end %>
+<h3><%= "#{@website.header}" %></h3>
+<p><%= "#{@website.content}" %></p>
+<br />
+<p>Launching soon. Enter your email to join our invite list:</p>
+<form>
+	Email: <input type="text" name="email" /><br />
+	<input type="submit" value="Submit" />
+</form> 
