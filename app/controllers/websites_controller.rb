@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
   def show
-  	@website = Website.find(params[:id])
+  	@website = Website.find_by_url(params[:url])
   end
 
 end

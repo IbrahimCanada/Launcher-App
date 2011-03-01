@@ -10,8 +10,8 @@ LauncherApp::Application.routes.draw do
   root :to => "admins#new"
   
   resources :admins
-  resources :websites, :only => [:show]
-  #match 'websites/:url' => 'websites#show'
+  #resources :websites, :only => [:show]
+  match ':url' => 'websites#show'
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
