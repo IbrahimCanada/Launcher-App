@@ -11,11 +11,12 @@ LauncherApp::Application.routes.draw do
   
   resources :admins
   #resources :websites, :only => [:show]
-  match ':url' => 'websites#show'
+  
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
+	match ':url' => 'websites#show'
 
  
 
