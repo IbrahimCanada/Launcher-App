@@ -10,7 +10,19 @@
 <p><%= "#{@website.content}" %></p>
 <br />
 <p>Launching soon. Enter your email to join our invite list:</p>
-<form>
-	Email: <input type="text" name="email" /><br />
-	<input type="submit" value="Submit" />
-</form> 
+<%= form_for @user do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div>
+		<%= f.hidden_field :website, :value => @website.id %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
+<% if @user_show %>
+	<p>Your unique user link is <%= "#{@user.link}" %></p>
+<% end %>

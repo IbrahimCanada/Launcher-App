@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110224194142
+# Schema version: 20110301210525
 #
 # Table name: websites
 #
@@ -8,6 +8,8 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  admin_id   :integer
+#  header     :string(255)
+#  content    :text
 #
 
 class Website < ActiveRecord::Base
@@ -17,6 +19,7 @@ class Website < ActiveRecord::Base
 	validates :url, :presence => true,
 									:length => { :maximum => 6, :minimum => 6 }
 	
+	has_many :users
 	belongs_to :admin
 	
 	

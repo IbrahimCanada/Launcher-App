@@ -3,6 +3,8 @@ LauncherApp::Application.routes.draw do
 
   
 
+  get "users/create"
+
   get "pages/home"
   get "pages/contact"
   get "pages/about"
@@ -11,13 +13,14 @@ LauncherApp::Application.routes.draw do
   
   resources :admins
   resources :websites, :only => [:show, :edit, :update]
-  
+  resources :users, :only => [:create]
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
+	#match '/usershow', :to => 'websites#user_show'
 	match ':url' => 'websites#show'
-
+	
  
 
   # The priority is based upon order of creation:
