@@ -8,8 +8,10 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
-		<% flash.each do |key, value| %>
-	    <div class="flash <%=key %>"><%= value %></div>
+		<% flash.each do |key, value| %>			
+			<% unless key.to_s == "user_show" %>		
+	    	<div class="flash <%=key %>"><%= value %></div>
+	    <% end %>
 	  <% end %>
 		
 		<%= yield %>

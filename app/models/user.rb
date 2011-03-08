@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110303194730
+# Schema version: 20110308205745
 #
 # Table name: users
 #
@@ -10,23 +10,28 @@
 #  updated_at      :datetime
 #  website_id      :integer
 #  link            :string(255)
-#  clicks          :integer
+#  clicks          :integer         default(0)
+#  signups         :integer         default(0)
+#  invite          :boolean
 #
 
 class User < ActiveRecord::Base
 
 	before_validation :create_link
 	
+	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
 	validates :email,  :presence => true,
-	 									 :format   => { :with => email_regex },
-	 									 :uniqueness => { :case_sensitive => false }
+	 									 :format   => { :with => email_regex }
+	 									 
+	validates_uniqueness_of :email, :scope => :website_id
 	
 	belongs_to :website
 	
 	def increment_clicks
 		self.clicks += 1
+		invite_user if self.clicks >= 3
 		self.save
 	end
 	
@@ -44,6 +49,10 @@ class User < ActiveRecord::Base
 				end while User.find_by_link(random_link) != nil
 				self.link = random_link
 			end
+		end
+		
+		def invite_user
+			self.invite = true
 		end
 	
 end

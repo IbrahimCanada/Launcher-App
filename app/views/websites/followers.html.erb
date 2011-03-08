@@ -1,0 +1,4 @@
+<h1>List of your website's followers:</h1>
+<% @website.users.each do |user| %>
+	<%= user.email %><br />
+<% end %>

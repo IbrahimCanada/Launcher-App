@@ -1,17 +1,21 @@
 class WebsitesController < ApplicationController
+		
   def show
+  	#@user_show = false
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
-  		@user = User.new
+  		@new_user = User.new
   	elsif User.find_by_link(params[:url]) != nil #finding website with user's url
   		@user = User.find_by_link(params[:url])
-  		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } #@user.id
+  		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } 
   		@user.increment_clicks
   		@website = @user.website
-  		@user = User.new
+  		@new_user = User.new
   	elsif Website.find(params[:id]) != nil       #finding website using standard websites/id
   		@website = Website.find(params[:id]) 
-  		@user = User.new
+  		@new_user = User.new
+  		@user_show = flash[:user_show] #params[:user_show]  
+  		@user = User.find(flash[:user_show]) if flash[:user_show]#User.find(params[:user_show]) if params[:user_show]
   	else
   		flash[:error] = "No such Url!"
   		redirect_to root_path
@@ -19,6 +23,7 @@ class WebsitesController < ApplicationController
   	
   end
   
+   
   def edit
   	@website = Website.find(params[:id])
   end
@@ -32,6 +37,11 @@ class WebsitesController < ApplicationController
   		flash[:error] = "Website not updated."
   		render 'edit'
   	end
+  end
+  
+  def followers
+  	@website = Website.find(params[:id])
+  	render 'followers'
   end
 
 end

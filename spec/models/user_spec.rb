@@ -17,7 +17,7 @@ describe User do
   	@user.link.should_not == nil
   end
   
-   it "should increment signups" do
+   it "should increment clicks" do
   	@user.increment_clicks
   	@user.clicks.should == 1
   end
@@ -26,4 +26,19 @@ describe User do
   	@user.increment_signups
   	@user.signups.should == 1
   end
+  
+  it "should not invite user after less than 3 clicks" do
+  	2.times do
+  		@user.increment_clicks
+  	end
+  	@user.invite.should be_false
+  end
+  	
+  it "should set invite to true for user after 3 clicks" do
+  	3.times do
+  		@user.increment_clicks
+  	end
+  	@user.invite.should be_true
+  end
+  	
 end

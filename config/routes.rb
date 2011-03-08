@@ -15,10 +15,11 @@ LauncherApp::Application.routes.draw do
   resources :websites, :only => [:show, :edit, :update]
   resources :users, :only => [:create]
   resources :sessions, :only => [:new, :create, :destroy]
+  match '/followers', :to => 'websites#followers'
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
-	#match '/usershow', :to => 'websites#user_show'
+	
 	match ':url' => 'websites#show'
 	
  

@@ -1,7 +1,8 @@
-<h1>This is the website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %></h1>
+<h1>URL for this website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %></h1>
 <% if current_admin == @website.admin %>
 	<p>Welcome, <%= "#{@website.admin.email}" %>! This is your landing page, and you can edit it to your liking!</p>
 	<%= link_to "Edit", edit_website_path(@website) %>
+	<%= link_to "Show followers", followers_path(:id => @website) %>
 <% end %>
 <% if false %>	
 	<h3>Logo</h3>
@@ -9,20 +10,23 @@
 <h3><%= "#{@website.header}" %></h3>
 <p><%= "#{@website.content}" %></p>
 <br />
-<p>Launching soon. Enter your email to join our invite list:</p>
-<%= form_for @user do |f| %>
-	<%= render 'shared/error_messages', :object => f.object %>
-	<div class="field">
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	</div>
-	<div>
-		<%= f.hidden_field :website, :value => @website.id %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Submit" %>
-	</div>
-<% end %>
 <% if @user_show %>
-	<p>Your unique user link is <%= "#{@user.link}" %></p>
+	<p>Hello, <%= "#{@user.email}" %>!</p>
+	<p>Your unique user link is http://getyourlaunchbox.com/<%= "#{@user.link}" %></p>
+	<p>You have <%= "#{@user.clicks}" %> clicks and <%= "#{@user.signups}" %> signups! The more signups you have, the faster you'll receive an invite!</p>
+<% else %>
+	<p>Launching soon. Enter your email to join our invite list:</p>
+	<%= form_for @new_user do |f| %>
+		<%= render 'shared/error_messages', :object => f.object %>
+		<div class="field">
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
+		<div>
+			<%= f.hidden_field :website, :value => @website.id %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Submit" %>
+		</div>
+	<% end %>
 <% end %>
