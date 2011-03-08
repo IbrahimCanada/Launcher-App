@@ -1,6 +1,5 @@
 class WebsitesController < ApplicationController
   def show
-  	#@website = Website.find_by_url(params[:url]) || @website = User.find_by_link(params[:url]).website || @website = Website.find(params[:id]) 
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
   		@user = User.new
@@ -19,13 +18,6 @@ class WebsitesController < ApplicationController
   	end
   	
   end
-  
-  #def user_show
-  #	@user = User.find(8) #change this!!
-  #	@user_show = true
-  #	@website = Website.find(params[:id])
-  #	render website_path(@website)
-  #end
   
   def edit
   	@website = Website.find(params[:id])
