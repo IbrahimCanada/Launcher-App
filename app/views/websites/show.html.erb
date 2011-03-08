@@ -1,4 +1,4 @@
-<h1>URL for this website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %></h1>
+<p>URL for this website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %><p>
 <% if current_admin == @website.admin %>
 	<p>Welcome, <%= "#{@website.admin.email}" %>! This is your landing page, and you can edit it to your liking!</p>
 	<%= link_to "Edit", edit_website_path(@website) %>
@@ -12,7 +12,7 @@
 <br />
 <% if @user_show %>
 	<p>Hello, <%= "#{@user.email}" %>!</p>
-	<p>Your unique user link is http://getyourlaunchbox.com/<%= "#{@user.link}" %></p>
+	<h3>Your unique user link is http://getyourlaunchbox.heroku.com/<%= "#{@user.link}" %> Share this link with all your friends!</h3>
 	<p>You have <%= "#{@user.clicks}" %> clicks and <%= "#{@user.signups}" %> signups! The more signups you have, the faster you'll receive an invite!</p>
 <% else %>
 	<p>Launching soon. Enter your email to join our invite list:</p>
