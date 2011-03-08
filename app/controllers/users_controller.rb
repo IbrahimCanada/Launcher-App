@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   def create
 	  @website = Website.find(params[:user][:website])
   	@user = @website.users.create( :email => params[:user][:email] ) 	
+  	if cookies[:referrer]
+	  	@referrer = User.find(cookies[:referrer])
+   		@referrer.increment_signups
+  	end
   	if @user.save
   		flash[:success] = "You're all signed up!"  		
   	else

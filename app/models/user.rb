@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
 		self.save
 	end
 	
+	def increment_signups
+		self.signups += 1
+		self.save
+	end
+	
 	private #############################
 	
 		def create_link

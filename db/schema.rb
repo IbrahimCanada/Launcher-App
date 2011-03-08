@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303194730) do
+ActiveRecord::Schema.define(:version => 20110308154338) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110303194730) do
     t.integer  "website_id"
     t.string   "link"
     t.integer  "clicks",          :default => 0
+    t.integer  "signups",         :default => 0
   end
 
   create_table "websites", :force => true do |t|

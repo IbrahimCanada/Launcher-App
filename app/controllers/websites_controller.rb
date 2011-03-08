@@ -1,15 +1,16 @@
 class WebsitesController < ApplicationController
   def show
   	#@website = Website.find_by_url(params[:url]) || @website = User.find_by_link(params[:url]).website || @website = Website.find(params[:id]) 
-  	if Website.find_by_url(params[:url]) != nil
+  	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
   		@user = User.new
-  	elsif User.find_by_link(params[:url]) != nil
+  	elsif User.find_by_link(params[:url]) != nil #finding website with user's url
   		@user = User.find_by_link(params[:url])
+  		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } #@user.id
   		@user.increment_clicks
   		@website = @user.website
   		@user = User.new
-  	elsif Website.find(params[:id]) != nil
+  	elsif Website.find(params[:id]) != nil       #finding website using standard websites/id
   		@website = Website.find(params[:id]) 
   		@user = User.new
   	else
