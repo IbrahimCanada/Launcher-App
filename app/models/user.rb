@@ -29,14 +29,16 @@ class User < ActiveRecord::Base
 	
 	belongs_to :website
 	
+	default_scope :order => 'users.signups DESC'
+	
 	def increment_clicks
 		self.clicks += 1
-		invite_user if self.clicks >= 3
 		self.save
 	end
 	
 	def increment_signups
 		self.signups += 1
+		invite_user if self.signups >= 3
 		self.save
 	end
 	

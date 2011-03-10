@@ -1,4 +1,10 @@
 <h1>List of your website's followers:</h1>
 <% @website.users.each do |user| %>
-	<%= user.email %><br />
+	<table class="followers">
+		<tr>
+			<td><%= user.email %>,</td> &nbsp&nbsp
+			<td>Signups: <%= user.signups %>,</td> &nbsp&nbsp
+			<td>Eligible for Invitation: <%= "Yes" if user.invite %> <%= "No" if !user.invite %></td>
+		<tr/>
+	</table>
 <% end %>
