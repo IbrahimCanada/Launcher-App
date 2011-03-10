@@ -1,7 +1,6 @@
 class WebsitesController < ApplicationController
 		
   def show
-  	#@user_show = false
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
   		@new_user = User.new
@@ -11,11 +10,11 @@ class WebsitesController < ApplicationController
   		@user.increment_clicks
   		@website = @user.website
   		@new_user = User.new
-  	elsif Website.find(params[:id]) != nil       #finding website using standard websites/id
+  	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id
   		@website = Website.find(params[:id]) 
   		@new_user = User.new
   		@user_show = flash[:user_show] #params[:user_show]  
-  		@user = User.find(flash[:user_show]) if flash[:user_show]#User.find(params[:user_show]) if params[:user_show]
+  		@user = User.find(flash[:user_show]) if flash[:user_show]
   	else
   		flash[:error] = "No such Url!"
   		redirect_to root_path
