@@ -10,7 +10,12 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-
+    when /the sign in page/
+    	'/signin'
+   	when /^(.*) admin page$/i
+			admin_path(Admin.find_by_email($1))
+		when /my website/
+			website_path(Admin.find_by_email("admin@example.com").websites.first)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

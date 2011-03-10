@@ -9,10 +9,7 @@ describe PagesController do
       response.should be_success
     end
     
-   	it "title should include 'LaunchBox'" do
-    	get :home
-    	response.should have_selector("title", :content => "LaunchBox")
-    end
+  
   end
 
   describe "GET 'contact'" do
