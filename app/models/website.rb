@@ -1,15 +1,19 @@
 # == Schema Information
-# Schema version: 20110301210525
+# Schema version: 20110315171449
 #
 # Table name: websites
 #
-#  id         :integer         not null, primary key
-#  url        :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  admin_id   :integer
-#  header     :string(255)
-#  content    :text
+#  id                :integer         not null, primary key
+#  url               :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
+#  admin_id          :integer
+#  header            :string(255)
+#  content           :text
+#  logo_file_name    :string(255)
+#  logo_content_type :string(255)
+#  logo_file_size    :integer
+#  logo_updated_at   :datetime
 #
 
 class Website < ActiveRecord::Base
@@ -21,6 +25,9 @@ class Website < ActiveRecord::Base
 	
 	has_many :users
 	belongs_to :admin
+	
+	has_attached_file :logo#, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
 	
 	
 	

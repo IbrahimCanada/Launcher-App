@@ -1,6 +1,6 @@
 <h1>Edit your page here</h1>
 <p>URL: <%= "#{@website.url}" %></p>
-<%= form_for @website do |f| %>
+<%= form_for @website, :html => { :multipart => true } do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.label :header %>
@@ -9,6 +9,9 @@
 	<div class="field">
 		<%= f.label :content %>
 		<%= f.text_area :content %>
+	</div>
+	<div class="field">
+		<%= f.file_field :logo %>
 	</div>
 	<div class="actions">
 		<%= f.submit "Submit" %>
