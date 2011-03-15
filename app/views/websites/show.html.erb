@@ -14,6 +14,7 @@
 	<p>Hello, <%= "#{@user.email}" %>!</p>
 	<h3>Your unique user link is http://getyourlaunchbox.heroku.com/<%= "#{@user.link}" %> Share this link with all your friends!</h3>
 	<p>You have <%= "#{@user.clicks}" %> clicks and <%= "#{@user.signups}" %> signups! The more signups you have, the faster you'll receive an invite!</p>
+	<%= render 'twitter' %>
 <% else %>
 	<p>Launching soon. Enter your email to join our invite list:</p>
 	<%= form_for @new_user do |f| %>
