@@ -1,7 +1,10 @@
 <h1>Edit your page here</h1>
-<p>URL: <%= "#{@website.url}" %></p>
 <%= form_for @website, :html => { :multipart => true } do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :url %>
+		<%= f.text_field :url %>
+	</div>
 	<div class="field">
 		<%= f.label :header %>
 		<%= f.text_field :header %>

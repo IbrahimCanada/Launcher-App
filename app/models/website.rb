@@ -20,8 +20,7 @@ class Website < ActiveRecord::Base
 
 	before_validation :create_url
 	
-	validates :url, :presence => true,
-									:length => { :maximum => 6, :minimum => 6 }
+	validates :url, :presence => true
 	
 	has_many :users
 	belongs_to :admin
