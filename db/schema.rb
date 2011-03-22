@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315171449) do
+ActiveRecord::Schema.define(:version => 20110322202513) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(:version => 20110315171449) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
   end
 
 end

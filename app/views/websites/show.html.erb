@@ -1,5 +1,6 @@
 <p>URL for this website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %><p>
-<%= image_tag @website.logo.url %>
+<div>Logo: <%= image_tag @website.logo.url %></div>
+<div class="background"> Background: <%= image_tag @website.background.url %></div>
 <% if current_admin == @website.admin %>
 	<p>Welcome, <%= "#{@website.admin.email}" %>! This is your landing page, and you can edit it to your liking!</p>
 	<%= link_to "Edit", edit_website_path(@website) %>
