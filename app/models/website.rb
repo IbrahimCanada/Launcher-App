@@ -20,7 +20,8 @@ class Website < ActiveRecord::Base
 
 	before_validation :create_url
 	
-	validates :url, :presence => true
+	validates :url, :presence => true,
+  								 :uniqueness => { :case_sensitive => false }
 	
 	has_many :users
 	belongs_to :admin
