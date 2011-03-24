@@ -13,13 +13,13 @@ class WebsitesController < ApplicationController
   	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id
   		@website = Website.find(params[:id]) 
   		@new_user = User.new
-  		@user_show = flash[:user_show] #params[:user_show]  
+  		@user_show = flash[:user_show] 
   		@user = User.find(flash[:user_show]) if flash[:user_show]
   	else
   		flash[:error] = "No such Url!"
   		redirect_to root_path
   	end
-  	
+  	  	
   end
   
    

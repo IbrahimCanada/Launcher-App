@@ -6,10 +6,6 @@ describe Website do
 		Website.create!(:url => "qwerty")
 	end
 	
-#	it "should require a url" do
-#		no_url_website = Website.new()
-#		no_url_website.should_not be_valid
-#	end
 	
 	it "should belong to an admin" do
 		@attr = { :email => "admin@example.com", :password => "password" }
@@ -18,8 +14,5 @@ describe Website do
 		site.admin.should_not be_nil
 	end
 	
-#	it "url should have 6 alphabetic characters" do
-#		site = Website.new(:url => "qwert")
-#		site.should_not be_valid
-#	end	
+
 end

@@ -5,4 +5,17 @@ TODO:
 4. Admin can import followers to file or database. CSV?
 
 
+<div class="background"> Background: <%= image_tag @website.background.url %></div>
 
+document.body.backgrond = this.getAttribute("data-message")
+$("document").css('background-image', 'url(images/rails.png)'); 
+
+
+TODO:
+1. Real site should pull api from my site to see if user is eligible
+2. Email confirmation for backend. What about front end?
+3. User can send links via email via my website.
+4. Fix background issues.
+5. Import user data with CSV.
+6. Have admin provide domain name he'll be using and incorporate that into the url for the users.
+7. Email user when he is eligible.
