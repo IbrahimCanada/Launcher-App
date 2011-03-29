@@ -16,6 +16,25 @@ TODO:
 2. Email confirmation for backend. What about front end?
 3. User can send links via email via my website.
 4. Fix background issues.
-5. Import user data with CSV.
+5. Import user data as CSV.
 6. Have admin provide domain name he'll be using and incorporate that into the url for the users.
 7. Email user when he is eligible.
+8. Google analytics
+
+
+
+
+body {
+	z-index: 1;
+}
+
+#back {
+    height: 100%;
+    left: 0;
+    min-width: 1100px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
