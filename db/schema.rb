@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322202513) do
+ActiveRecord::Schema.define(:version => 20110330185539) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -27,9 +27,12 @@ ActiveRecord::Schema.define(:version => 20110322202513) do
     t.datetime "updated_at"
     t.integer  "website_id"
     t.string   "link"
-    t.integer  "clicks",          :default => 0
-    t.integer  "signups",         :default => 0
-    t.boolean  "invite",          :default => false
+    t.integer  "clicks",            :default => 0
+    t.integer  "signups",           :default => 0
+    t.boolean  "invite",            :default => false
+    t.string   "confirmation_code"
+    t.boolean  "confirmed",         :default => false
+    t.integer  "referrer_id"
   end
 
   create_table "websites", :force => true do |t|

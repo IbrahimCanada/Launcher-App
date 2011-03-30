@@ -1,19 +1,23 @@
 # == Schema Information
-# Schema version: 20110315171449
+# Schema version: 20110330185539
 #
 # Table name: websites
 #
-#  id                :integer         not null, primary key
-#  url               :string(255)
-#  created_at        :datetime
-#  updated_at        :datetime
-#  admin_id          :integer
-#  header            :string(255)
-#  content           :text
-#  logo_file_name    :string(255)
-#  logo_content_type :string(255)
-#  logo_file_size    :integer
-#  logo_updated_at   :datetime
+#  id                      :integer         not null, primary key
+#  url                     :string(255)
+#  created_at              :datetime
+#  updated_at              :datetime
+#  admin_id                :integer
+#  header                  :string(255)
+#  content                 :text
+#  logo_file_name          :string(255)
+#  logo_content_type       :string(255)
+#  logo_file_size          :integer
+#  logo_updated_at         :datetime
+#  background_file_name    :string(255)
+#  background_content_type :string(255)
+#  background_file_size    :integer
+#  background_updated_at   :datetime
 #
 
 class Website < ActiveRecord::Base

@@ -1,23 +1,27 @@
 # == Schema Information
-# Schema version: 20110308205745
+# Schema version: 20110330185539
 #
 # Table name: users
 #
-#  id              :integer         not null, primary key
-#  email           :string(255)
-#  invite_eligible :boolean
-#  created_at      :datetime
-#  updated_at      :datetime
-#  website_id      :integer
-#  link            :string(255)
-#  clicks          :integer         default(0)
-#  signups         :integer         default(0)
-#  invite          :boolean
+#  id                :integer         not null, primary key
+#  email             :string(255)
+#  invite_eligible   :boolean
+#  created_at        :datetime
+#  updated_at        :datetime
+#  website_id        :integer
+#  link              :string(255)
+#  clicks            :integer         default(0)
+#  signups           :integer         default(0)
+#  invite            :boolean
+#  confirmation_code :string(255)
+#  confirmed         :boolean
+#  referrer_id       :integer
 #
 
 class User < ActiveRecord::Base
 
 	before_validation :create_link
+	before_create :create_confirmation_code
 	
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -42,6 +46,11 @@ class User < ActiveRecord::Base
 		self.save
 	end
 	
+	def confirm
+		self.confirmed = true
+		self.save
+	end
+	
 	private #############################
 	
 		def create_link
@@ -56,5 +65,8 @@ class User < ActiveRecord::Base
 		def invite_user
 			self.invite = true
 		end
-	
+		
+		def create_confirmation_code
+			self.confirmation_code = Digest::SHA1.hexdigest([Time.now, rand].join)
+		end
 end
