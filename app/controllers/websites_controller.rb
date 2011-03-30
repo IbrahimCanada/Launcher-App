@@ -4,6 +4,7 @@ class WebsitesController < ApplicationController
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
   		@new_user = User.new
+  		cookies.delete(:referrer)
   	elsif User.find_by_link(params[:url]) != nil #finding website with user's url
   		@user = User.find_by_link(params[:url])
   		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } 
@@ -15,6 +16,7 @@ class WebsitesController < ApplicationController
   		@new_user = User.new
   		@user_show = flash[:user_show] 
   		@user = User.find(flash[:user_show]) if flash[:user_show]
+  		cookies.delete(:referrer)
   	else
   		flash[:error] = "No such Url!"
   		redirect_to root_path

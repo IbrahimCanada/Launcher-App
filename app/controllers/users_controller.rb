@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 			@user = @website.users.create( :email => params[:user][:email] ) 	
 			if @user.save
 				if cookies[:referrer]
-					@user.referrer_id = User.find(cookies[:referrer])
-		 			#@referrer.increment_signups
+					@user.set_referrer_id( User.find(cookies[:referrer]).id )
 				end
 				UserMailer.confirmation_email(@user, @website).deliver
 				flash[:notice] = "Please click the confirmation link on an email you will receive shortly to complete sign up process."
@@ -25,8 +24,9 @@ class UsersController < ApplicationController
 		@user = User.find_by_confirmation_code(@confirmation_code)
 		@user.confirm
 		if @user.referrer_id
-			User.find_by_referrer_id(@user.referrer_id).increment_signups
+			User.find(@user.referrer_id).increment_signups
 		end
+		cookies.delete(:referrer)
 		flash[:success] = "Thanks for signing up!" 
 		flash[:user_show] = @user.id
 		redirect_to :controller => 'websites', :action => 'show', :id => @user.website

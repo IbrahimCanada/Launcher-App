@@ -1,42 +1,13 @@
 TODO:
-1. Prevent bogus emails? Launchrock actually doesn't, besides using their corny permanent cookie technique.
-2. Admin can upload images to be displayed on website
-3. Admin can change website name which is to be displayed 
-4. Admin can import followers to file or database. CSV?
-
-
-<div class="background"> Background: <%= image_tag @website.background.url %></div>
-
-document.body.backgrond = this.getAttribute("data-message")
-$("document").css('background-image', 'url(images/rails.png)'); 
-
-
-TODO:
-1. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
-2. Email confirmation for backend. What about front end? Yup.
-3. User can send links via email via my website.
-4. Fix background issues.
-5. Import user data as CSV.
-6. Have admin provide domain name he'll be using and incorporate that into the url for the users.
-7. Email user when he is eligible.
-8. Google analytics
+1. Make widget!
+2. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
+3. Email confirmation for backend?
+4. Import user data as CSV.
+5. Have admin provide domain name he'll be using and incorporate that into the url for the users.
+6. Email user when he is eligible.
+7. Google analytics
 
 Names?
 
 Signupward
 
-
-body {
-	z-index: 1;
-}
-
-#back {
-    height: 100%;
-    left: 0;
-    min-width: 1100px;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-}

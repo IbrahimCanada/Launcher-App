@@ -46,6 +46,11 @@ class User < ActiveRecord::Base
 		self.save
 	end
 	
+	def set_referrer_id(referrer_id)
+		self.referrer_id = referrer_id
+		self.save
+	end
+	
 	def confirm
 		self.confirmed = true
 		self.save
