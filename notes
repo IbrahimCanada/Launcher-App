@@ -12,8 +12,8 @@ $("document").css('background-image', 'url(images/rails.png)');
 
 
 TODO:
-1. Real site should pull api from my site to see if user is eligible
-2. Email confirmation for backend. What about front end?
+1. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
+2. Email confirmation for backend. What about front end? Yup.
 3. User can send links via email via my website.
 4. Fix background issues.
 5. Import user data as CSV.

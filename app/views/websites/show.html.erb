@@ -21,6 +21,15 @@
 		<h3>Your unique user link is http://getyourlaunchbox.heroku.com/<%= "#{@user.link}" %> Share this link with all your friends! Share it by email, Twitter, and Facebook!</h3>
 		<%= render 'twitter' %>
 		<%= render 'facebook' %>
+		<%= form_tag '/invite' do  %>
+			<div class="field">
+				<%= label_tag :friend_email, "Friend's email: " %>
+				<%= text_field_tag :friend_email %>
+			</div>
+			<div><%= hidden_field_tag :user, @user.id %></div>
+			<div><%= hidden_field_tag :website, @website.id %></div>
+			<div><%= submit_tag 'Invite' %></div>
+		<% end %>
 	<% else %>
 		<p>Launching soon. Enter your email to join our invite list:</p>
 		<%= form_for @new_user do |f| %>

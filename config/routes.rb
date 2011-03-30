@@ -19,7 +19,7 @@ LauncherApp::Application.routes.draw do
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
-	
+	post '/invite', :to => 'invitations#invite'
 	match ':url' => 'websites#show'
 	
  

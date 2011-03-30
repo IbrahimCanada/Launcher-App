@@ -24,6 +24,8 @@ LauncherApp::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
   
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+
 
 end
 
