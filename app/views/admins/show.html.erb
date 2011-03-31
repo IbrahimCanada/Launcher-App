@@ -2,4 +2,9 @@
 <% @admin.websites.each do |site| %>
 	<%= "Your website url is:" %>
 	<%= link_to "www.getyourlaunchbox.heroku.com/#{site.url}", "http://getyourlaunchbox.heroku.com/#{site.url}" %>
+		<% if current_admin == site.admin %>
+		<p>Here is your dashboard:</p>
+		<%= link_to "Edit", edit_website_path(site) %>
+		<%= link_to "Show followers", followers_path(:id => site) %>
+	<% end %>
 <% end %>

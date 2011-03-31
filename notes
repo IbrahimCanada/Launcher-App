@@ -1,5 +1,6 @@
 TODO:
 1. Make widget!
+	a. deal with what happens if a user signs in again before confiming. Repeat confirmation message? Deliver a new email?
 2. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
 3. Email confirmation for backend?
 4. Import user data as CSV.
@@ -7,7 +8,11 @@ TODO:
 6. Email user when he is eligible.
 7. Google analytics
 
+
 Names?
 
 Signupward
+
+
+<div>Logo: <%= image_tag @website.logo.url %></div>
 

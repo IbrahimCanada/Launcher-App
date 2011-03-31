@@ -1,17 +1,4 @@
 <div id="website">
-	<div id="back">
-    <%= image_tag(@website.background.url, :width => "100%", :height => "100%") %>
-  </div>
-	<p>URL for this website: getyourlaunchbox.heroku.com/<%= "#{@website.url}" %><p>
-	<div>Logo: <%= image_tag @website.logo.url %></div>
-	<% if current_admin == @website.admin %>
-		<p>Welcome, <%= "#{@website.admin.email}" %>! This is your landing page, and you can edit it to your liking!</p>
-		<%= link_to "Edit", edit_website_path(@website) %>
-		<%= link_to "Show followers", followers_path(:id => @website) %>
-	<% end %>
-	<% if false %>	
-		<h3>Logo</h3>
-	<% end %>
 	<h3><%= "#{@website.header}" %></h3>
 	<p><%= "#{@website.content}" %></p>
 	<br />
