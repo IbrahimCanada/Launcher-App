@@ -7,7 +7,7 @@
 	  <%= csrf_meta_tag %>
 	</head>
 	<body id="body">
-		<%= render 'layouts/header' %>
+		<%= render 'layouts/header' if !@widget %>
 		<% flash.each do |key, value| %>			
 			<% unless key.to_s == "user_show" %>		
 	    	<div class="flash <%=key %>"><%= value %></div>

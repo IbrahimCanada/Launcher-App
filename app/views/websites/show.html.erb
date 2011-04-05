@@ -1,7 +1,5 @@
 <div id="website">
-	<h3><%= "#{@website.header}" %></h3>
-	<p><%= "#{@website.content}" %></p>
-	<br />
+
 	<% if @user_show %>
 		<p>Hello, <%= "#{@user.email}" %>!</p>
 		<p>You have <%= "#{@user.clicks}" %> clicks and <%= "#{@user.signups}" %> signups! The more signups you have, the faster you'll receive an invite!</p>

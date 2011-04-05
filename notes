@@ -13,6 +13,9 @@ Names?
 
 Signupward
 
-
+Stuff taken out of website/show since it has been widgetized:
 <div>Logo: <%= image_tag @website.logo.url %></div>
+	<h3><%= "#{@website.header}" %></h3>
+	<p><%= "#{@website.content}" %></p>
+	<br />
 

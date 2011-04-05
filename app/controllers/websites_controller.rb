@@ -4,19 +4,22 @@ class WebsitesController < ApplicationController
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
   		@new_user = User.new
-  		cookies.delete(:referrer)
+  		@widget = true
   	elsif User.find_by_link(params[:url]) != nil #finding website with user's url
   		@user = User.find_by_link(params[:url])
   		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } 
   		@user.increment_clicks
   		@website = @user.website
-  		@new_user = User.new
-  	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id
+  		#@new_user = User.new
+  		#redirect to gnaarly's site
+  		#redirect_to "http://localhost:3001"
+  		redirect_to "http://" + @website.url
+  	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id - will probably deprecate this option
   		@website = Website.find(params[:id]) 
   		@new_user = User.new
   		@user_show = flash[:user_show] 
   		@user = User.find(flash[:user_show]) if flash[:user_show]
-  		cookies.delete(:referrer)
+  		@widget = true
   	else
   		flash[:error] = "No such Url!"
   		redirect_to root_path
