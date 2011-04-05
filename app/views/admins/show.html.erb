@@ -1,10 +1,15 @@
 <h1>Welcome <%= @admin.email %>!</h1>
 <% @admin.websites.each do |site| %>
 	<%= "Your website url is:" %>
-	<%= link_to "www.getyourlaunchbox.heroku.com/#{site.url}", "http://getyourlaunchbox.heroku.com/#{site.url}" %>
+	<%= link_to "#{site.url}", "http://#{site.url}" %>
 		<% if current_admin == site.admin %>
 		<p>Here is your dashboard:</p>
 		<%= link_to "Edit", edit_website_path(site) %>
-		<%= link_to "Show followers", followers_path(:id => site) %>
+		<%= link_to "Show followers", followers_path(:id => site) %><br /><br />
+		<div id="snippet">Copy and paste the following code snippet into your website, and voila! You have your widget.<br/><br/>
+			&lt iframe src="http://gethypebox.com/websites/<%= "#{site.id}" %>" width="50%" height="300" &gt
+  		&lt p &gt Your browser does not support iframes.&lt/p&gt
+		&lt/iframe&gt
 	<% end %>
 <% end %>
+

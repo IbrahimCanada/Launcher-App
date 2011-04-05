@@ -34,9 +34,10 @@ class WebsitesController < ApplicationController
   
   def update
   	@website = Website.find(params[:id])
+  	@admin = @website.admin
   	if @website.update_attributes(params[:website])
   		flash[:success] = "Website updated!"
-  		redirect_to website_path(@website)
+  		redirect_to admin_path(@admin)
   	else
   		flash[:error] = "Website not updated."
   		render 'edit'

@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  before_filter :authenticate, :only => [:show]
+  
   def new
   	@admin = Admin.new
   end
@@ -17,7 +19,16 @@ class AdminsController < ApplicationController
   end
   
   def show
-  	@admin = Admin.find(params[:id])
+  	
   end
 
+	private
+	
+	def authenticate
+		@admin = Admin.find(params[:id])
+		if @admin != current_admin
+			flash[:notice] = "You are not authorized for this."
+			redirect_to root_path
+		end
+	end
 end

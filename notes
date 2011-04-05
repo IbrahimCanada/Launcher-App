@@ -1,5 +1,6 @@
 TODO:
 1. Improve admin page (including that he goes back to adminpage after editing)
+Q: Should snippet link be cryptaphied? Or should it be a subdomain? Or what?
 1. Make widget!
 	a. deal with what happens if a user signs in again before confiming. Repeat confirmation message? Deliver a new email?
 2. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
