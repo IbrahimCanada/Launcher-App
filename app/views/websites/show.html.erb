@@ -3,7 +3,7 @@
 	<% if @user_show %>
 		<p>Hello, <%= "#{@user.email}" %>!</p>
 		<p>You have <%= "#{@user.clicks}" %> clicks and <%= "#{@user.signups}" %> signups! The more signups you have, the faster you'll receive an invite!</p>
-		<h3>Your unique user link is http://<%= "#{@website.url}" %>.hypebox.com/<%= "#{@user.link}" %> Share this link with all your friends! Share it by email, Twitter, and Facebook!</h3>
+		<h3>Your unique user link is http://<%= "#{@website.url}" %>.gethypebox.com/<%= "#{@user.link}" %> Share this link with all your friends! Share it by email, Twitter, and Facebook!</h3>
 		<%= render 'twitter' %>
 		<%= render 'facebook' %>
 		<%= form_tag '/invite' do  %>

@@ -1,9 +1,7 @@
 <h1>Welcome <%= @admin.email %>!</h1>
 <% @admin.websites.each do |site| %>
-	<%= "Your website url is:" %>
-	<%= link_to "#{site.url}", "http://#{site.url}" %>
-		<% if current_admin == site.admin %>
-		<p>Here is your dashboard:</p>
+	<%= "Your company name is: #{site.url}" %>
+	<% if current_admin == site.admin %>
 		<%= link_to "Edit", edit_website_path(site) %>
 		<%= link_to "Show followers", followers_path(:id => site) %><br /><br />
 		<div id="snippet">Copy and paste the following code snippet into your website, and voila! You have your widget.<br/><br/>

@@ -21,3 +21,20 @@ Stuff taken out of website/show since it has been widgetized:
 	<p><%= "#{@website.content}" %></p>
 	<br />
 
+Taken out of websites/edit:
+	<div class="field">
+		<%= f.label :header %>
+		<%= f.text_field :header %>
+	</div>
+	<div class="field">
+		<%= f.label :content %>
+		<%= f.text_area :content %>
+	</div>
+	<div class="field">
+		<%= f.label :logo %>
+		<%= f.file_field :logo %>
+	</div>
+	<div class="field">
+		<%= f.label :background %>
+		<%= f.file_field :background %>
+	</div>
