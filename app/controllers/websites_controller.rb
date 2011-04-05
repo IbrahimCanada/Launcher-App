@@ -1,5 +1,6 @@
 class WebsitesController < ApplicationController
-		
+	require 'csv'
+
   def show
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
   		@website = Website.find_by_url(params[:url])
@@ -48,5 +49,30 @@ class WebsitesController < ApplicationController
   	@website = Website.find(params[:id])
   	render 'followers'
   end
+  
+  def csv
+  	@website = Website.find(params[:id])
+  	export_to_csv(@website)
+  end
 
+	private
+	
+	def export_to_csv(website)
+		@users = website.users.all
+
+		csv_string = CSV.generate do |csv|
+		  # header row
+		  csv << ["Email", "Signups", "Eligible for invite?"]
+
+		  # data rows
+		  @users.each do |user|
+		    csv << [user.email, user.signups, user.invite_eligible]
+		  end
+		end
+
+		# send it to the browsah
+		send_data csv_string,
+		          :type => 'text/csv; charset=iso-8859-1; header=present',
+		          :disposition => "attachment; filename=users.csv"
+	end
 end

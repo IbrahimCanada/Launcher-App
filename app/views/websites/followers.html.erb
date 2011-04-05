@@ -5,8 +5,9 @@
 		<tr>
 			<td><%= user.email %>,</td> &nbsp&nbsp
 			<td>Signups: <%= user.signups %>,</td> &nbsp&nbsp
-			<td>Eligible for Invitation: <%= "Yes" if user.invite %> <%= "No" if !user.invite %></td>
+			<td>Eligible for Invitation: <%= "Yes" if user.invite_eligible %> <%= "No" if !user.invite_eligible %></td>
 		<tr/>
 	</table>
 <% end %>
+<%= link_to "Export to CSV", csv_path(:id => @website) %>
 

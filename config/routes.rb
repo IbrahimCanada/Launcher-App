@@ -16,6 +16,7 @@ LauncherApp::Application.routes.draw do
   resources :users, :only => [:create]
   resources :sessions, :only => [:new, :create, :destroy]
   match '/followers', :to => 'websites#followers'
+  match '/csv', :to => 'websites#csv'
   match '/signup', :to => 'admins#new'
   match '/signin', :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
