@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		end
 		flash[:success] = "Thanks for signing up!" 
 		flash[:user_show] = @user.id
-		redirect_to "http://" + @website.url
+		redirect_to "http://" + @website.domain_name
 		#redirect_to :controller => 'websites', :action => 'show', :id => @user.website
 	end
 end

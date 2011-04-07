@@ -6,7 +6,7 @@ class InvitationsController < ApplicationController
 		@website = Website.find(params[:website])
 		flash[:notice] = "Your friends have been invited!"
 		@friend_emails.each do |friend_email|
-			FriendMailer.invite_email(friend_email, @user.email, @user.link, @website.url).deliver
+			FriendMailer.invite_email(friend_email, @user.email, @user.link, @website.domain_name).deliver
 		end
 		flash[:user_show] = @user.id
 		redirect_to website_path(@website)

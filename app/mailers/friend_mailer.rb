@@ -1,5 +1,5 @@
 class FriendMailer < ActionMailer::Base
-  default :from => "notification@launchbox.com"
+  default :from => "notification@gethypebox.com"
   
   def invite_email(friend_email, sender_email, sender_link, website_name)
   	@sender_email = sender_email
