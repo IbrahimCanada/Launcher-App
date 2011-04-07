@@ -11,7 +11,7 @@ class WebsitesController < ApplicationController
   		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } 
   		@user.increment_clicks
   		@website = @user.website
-  		redirect_to "http://" + @website.name
+  		redirect_to "http://" + @website.domain_name
   	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id - will probably deprecate this option
   		@website = Website.find(params[:id]) 
   		@new_user = User.new

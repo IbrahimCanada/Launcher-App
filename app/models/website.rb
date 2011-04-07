@@ -18,7 +18,7 @@
 #  background_content_type :string(255)
 #  background_file_size    :integer
 #  background_updated_at   :datetime
-#  name                    :string(255)
+#  domain_name             :string(255)
 #
 
 class Website < ActiveRecord::Base

@@ -2,8 +2,8 @@
 <%= form_for @website, :html => { :multipart => true } do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
 	<div class="field">
-		<%= f.label :name, "Your domain name: (e.g. yourdomain.com, www.yourdomain.com)" %>
-		<%= f.text_field :name %>
+		<%= f.label :domain_name, "Your domain name: (e.g. yourdomain.com, www.yourdomain.com)" %>
+		<%= f.text_field :domain_name %>
 	</div>
 	<div class="actions">
 		<%= f.submit "Submit" %>

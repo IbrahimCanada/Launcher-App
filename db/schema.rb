@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20110405200529) do
     t.string   "background_content_type"
     t.integer  "background_file_size"
     t.datetime "background_updated_at"
-    t.string   "name"
+    t.string   "domain_name"
   end
 
 end
