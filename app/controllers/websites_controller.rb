@@ -5,6 +5,8 @@ class WebsitesController < ApplicationController
   	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url - this will be accessed by widget
   		@website = Website.find_by_url(params[:url])
   		@new_user = User.new
+  		@user_show = flash[:user_show] 
+  		@user = User.find(flash[:user_show]) if flash[:user_show]
   		@widget = true
   	elsif User.find_by_link(params[:url]) != nil #finding website with user's url
   		@user = User.find_by_link(params[:url])

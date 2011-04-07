@@ -4,13 +4,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>You have been invited to <%= @website_name %> by <%= @sender_email %>!</h1>
+    <h3>You have been invited to <%= link_to @website_name, "gethypebox.com/#{@sender_link}" %> by <%= @sender_email %>!</h3>
     <p>
       <br/>
     </p>
-    <p>
-      To login to the site, just follow this link: <%= "gethypebox.com/#{@sender_link}" %>.
-    </p>
+    <h1>
+      To get to the site, just follow this link: <%= link_to @website_name, "gethypebox.com/#{@sender_link}" %>.
+    </h1>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
