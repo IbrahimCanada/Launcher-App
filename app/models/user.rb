@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 	
 	def increment_signups
 		self.signups += 1
-		invite_user if self.signups >= 3
+		invite! if self.signups >= 3
 		self.save
 	end
 	
@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
 			end
 		end
 		
-		def invite_user
+		def invite!
 			self.invite = true
 		end
 		

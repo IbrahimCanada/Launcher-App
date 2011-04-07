@@ -5,7 +5,7 @@
 		<tr>
 			<td><%= user.email %>,</td> &nbsp&nbsp
 			<td>Signups: <%= user.signups %>,</td> &nbsp&nbsp
-			<td>Eligible for Invitation: <%= "Yes" if user.invite_eligible %> <%= "No" if !user.invite_eligible %></td>
+			<td>Eligible for Invitation: <%= "Yes" if user.invite %> <%= "No" if !user.invite %></td>
 		<tr/>
 	</table>
 <% end %>

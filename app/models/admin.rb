@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110224205642
+# Schema version: 20110407184241
 #
 # Table name: admins
 #
@@ -9,6 +9,7 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  salt               :string(255)
+#  api_key            :string(255)
 #
 
 class Admin < ActiveRecord::Base
@@ -16,6 +17,7 @@ class Admin < ActiveRecord::Base
 	attr_accessible :email, :password
 	
   before_save :encrypt_password
+  before_create :create_api_key
 	after_create :create_website
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -75,5 +77,9 @@ class Admin < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
+    
+    def create_api_key
+    	self.api_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..10]
+		end
     
 end

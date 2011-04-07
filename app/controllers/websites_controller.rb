@@ -61,11 +61,11 @@ class WebsitesController < ApplicationController
 
 		csv_string = CSV.generate do |csv|
 		  # header row
-		  csv << ["Email", "Signups", "Eligible for invite?"]
+		  csv << ["Email", "Signups", "Invited?"]
 
 		  # data rows
 		  @users.each do |user|
-		    csv << [user.email, user.signups, user.invite_eligible]
+		    csv << [user.email, user.signups, user.invite]
 		  end
 		end
 

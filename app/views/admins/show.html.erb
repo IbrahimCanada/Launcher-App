@@ -8,6 +8,16 @@
 			&lt;iframe src="http://gethypebox.com/<%= "#{site.url}" %>" width="50%" height="300"&gt
   		&lt;p&gt Your browser does not support iframes.&lt/p&gt
 		&lt/iframe&gt
+		</div><br />
+		<div id="api-key-info">
+			You can access the invitation status of any of your users programatically using our simple api.<br />
+			The syntax for xml is: gethypebox.com/api/v1/invited.xml?api_key=API-KEY&email=EMAIL-ADDRESS.<br />
+			For JSON, use gethypebox.com/api/v1/invited.json?api_key=API-KEY&email=EMAIL-ADDRESS.<br />
+			If the user is invited, the response will be 'true', and if not, it will be 'false'.<br />
+			Your api key is <span id="api-key"><%= @admin.api_key %></span>.<br />
+			For example, if you were to look up whether a user with the email address of user@example.com has been invited, you could look it up using:<br />
+			gethypebox.com/api/v1/invited.xml?api_key=<%= @admin.api_key %>&email=user@example.com .<br />
+		</div>
 	<% end %>
 <% end %>
 
