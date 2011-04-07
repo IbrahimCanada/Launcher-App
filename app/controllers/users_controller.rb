@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 	  @website = Website.find(params[:user][:website])
 	  if User.find_by_email_and_website_id(params[:user][:email], @website) 
 	  	@user = User.find_by_email_and_website_id(params[:user][:email], @website)
+	  	if @user.confirmed
+	  		flash[:user_show] = @user.id 
+	  	else
+	  		UserMailer.confirmation_email(@user, @website).deliver
+				flash[:notice] = "You have been sent another confirmation email. Please click the confirmation link on an email you will receive shortly to complete sign up process."
+			end
 	  else
 			@user = @website.users.create( :email => params[:user][:email] ) 	
 			if @user.save
@@ -15,12 +21,6 @@ class UsersController < ApplicationController
 			else
 				flash[:error] = "Sign up not successful. " + @user.errors.full_messages[0]
 			end
-		end
-		if @user.confirmed
-	  	flash[:user_show] = @user.id 
-	  else
-	  	UserMailer.confirmation_email(@user, @website).deliver
-			flash[:notice] = "You have been sent another confirmation email. Please click the confirmation link on an email you will receive shortly to complete sign up process."
 		end
   	redirect_to :controller => 'websites', :action => 'show', :id => @website 
   end
