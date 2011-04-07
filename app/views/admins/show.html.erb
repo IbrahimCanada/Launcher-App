@@ -1,6 +1,6 @@
 <h1>Welcome <%= @admin.email %>!</h1>
 <% @admin.websites.each do |site| %>
-	<%= "Your domain name is: #{site.name}" %>
+	<%= "Your domain name is: #{site.domain_name}" %>
 	<% if current_admin == site.admin %>
 		<%= link_to "Edit", edit_website_path(site) %>
 		<%= link_to "Show followers", followers_path(:id => site) %><br /><br />
