@@ -16,7 +16,12 @@ class UsersController < ApplicationController
 				flash[:error] = "Sign up not successful. " + @user.errors.full_messages[0]
 			end
 		end
-  	flash[:user_show] = @user.id if @user.confirmed
+		if @user.confirmed
+	  	flash[:user_show] = @user.id 
+	  else
+	  	UserMailer.confirmation_email(@user, @website).deliver
+			flash[:notice] = "You have been sent another confirmation email. Please click the confirmation link on an email you will receive shortly to complete sign up process."
+		end
   	redirect_to :controller => 'websites', :action => 'show', :id => @website 
   end
 

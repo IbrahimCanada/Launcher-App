@@ -1,15 +1,9 @@
 TODO:
 
-
-1. After confirming, widget should already know who you are - with flash or cookie?
-2. Make the only link in friend's email be friend's link, not domain name!
-1. Fix code snippet - remove spaces!
-1. Make link for admin to get to his admin page
 Q: Should snippet link be cryptaphied? Or should it be a subdomain? Or what?
 	a. deal with what happens if a user signs in again before confiming. Repeat confirmation message? Deliver a new email?
 2. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
 3. Email confirmation for backend?
-5. Have admin provide domain name he'll be using and incorporate that into the url for the users.
 6. Email user when he is eligible.
 7. Google analytics - I don't think this is applicable anymore.
 
