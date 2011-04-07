@@ -1,19 +1,13 @@
 TODO:
-1. Improve admin page (including that he goes back to adminpage after editing)
+
 Q: Should snippet link be cryptaphied? Or should it be a subdomain? Or what?
-1. Make widget!
 	a. deal with what happens if a user signs in again before confiming. Repeat confirmation message? Deliver a new email?
 2. Real site should pull api from my site to see if user is eligible. Or should there be a 'bouncer' widget?
 3. Email confirmation for backend?
-4. Import user data as CSV.
 5. Have admin provide domain name he'll be using and incorporate that into the url for the users.
 6. Email user when he is eligible.
-7. Google analytics
+7. Google analytics - I don't think this is applicable anymore.
 
-
-Names?
-
-Signupward
 
 Stuff taken out of website/show since it has been widgetized:
 <div>Logo: <%= image_tag @website.logo.url %></div>

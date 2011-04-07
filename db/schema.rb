@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330185539) do
+ActiveRecord::Schema.define(:version => 20110405200529) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110330185539) do
     t.string   "background_content_type"
     t.integer  "background_file_size"
     t.datetime "background_updated_at"
+    t.string   "name"
   end
 
 end

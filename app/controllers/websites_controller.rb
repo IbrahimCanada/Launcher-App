@@ -2,7 +2,7 @@ class WebsitesController < ApplicationController
 	require 'csv'
 
   def show
-  	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url
+  	if Website.find_by_url(params[:url]) != nil  #finding website with admin's url - this will be accessed by widget
   		@website = Website.find_by_url(params[:url])
   		@new_user = User.new
   		@widget = true
@@ -11,10 +11,7 @@ class WebsitesController < ApplicationController
   		cookies[:referrer] = { :value => @user.id, :expires => 1.day.from_now } 
   		@user.increment_clicks
   		@website = @user.website
-  		#@new_user = User.new
-  		#redirect to gnaarly's site
-  		#redirect_to "http://localhost:3001"
-  		redirect_to "http://" + @website.url
+  		redirect_to "http://" + @website.name
   	elsif Website.find_by_id(params[:id]) != nil       #finding website using standard websites/id - will probably deprecate this option
   		@website = Website.find(params[:id]) 
   		@new_user = User.new

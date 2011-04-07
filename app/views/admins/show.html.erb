@@ -1,11 +1,11 @@
 <h1>Welcome <%= @admin.email %>!</h1>
 <% @admin.websites.each do |site| %>
-	<%= "Your company name is: #{site.url}" %>
+	<%= "Your domain name is: #{site.name}" %>
 	<% if current_admin == site.admin %>
 		<%= link_to "Edit", edit_website_path(site) %>
 		<%= link_to "Show followers", followers_path(:id => site) %><br /><br />
 		<div id="snippet">Copy and paste the following code snippet into your website, and voila! You have your widget.<br/><br/>
-			&lt iframe src="http://gethypebox.com/websites/<%= "#{site.id}" %>" width="50%" height="300" &gt
+			&lt iframe src="http://gethypebox.com/<%= "#{site.url}" %>" width="50%" height="300" &gt
   		&lt p &gt Your browser does not support iframes.&lt/p&gt
 		&lt/iframe&gt
 	<% end %>

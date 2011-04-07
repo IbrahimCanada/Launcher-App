@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110330185539
+# Schema version: 20110405200529
 #
 # Table name: websites
 #
@@ -18,22 +18,23 @@
 #  background_content_type :string(255)
 #  background_file_size    :integer
 #  background_updated_at   :datetime
+#  name                    :string(255)
 #
 
 class Website < ActiveRecord::Base
 
 	before_validation :create_url
+
 	
-	validates :url, :presence => true,
-  								 :uniqueness => { :case_sensitive => false }
+	validates :url, :uniqueness => { :case_sensitive => false }, :presence => true
 	
 	has_many :users
 	belongs_to :admin
 	
-	has_attached_file :logo, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
-	:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension" #, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-	has_attached_file :background, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
-	:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension"
+	#has_attached_file :logo, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
+	#:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension" #, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	#has_attached_file :background, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
+	#:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension"
 
 	
 	
