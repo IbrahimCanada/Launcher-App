@@ -79,7 +79,8 @@ class Admin < ActiveRecord::Base
     end
     
     def create_api_key
-    	self.api_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..10]
+    	#self.api_key = Digest::SHA1.hexdigest(Time.now.to_s + rand(12341234).to_s)[1..10]
+    	self.api_key = Digest::SHA1.hexdigest(Time.now.to_s)[1..10]
 		end
     
 end
