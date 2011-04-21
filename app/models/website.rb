@@ -30,15 +30,7 @@ class Website < ActiveRecord::Base
 	
 	has_many :users
 	belongs_to :admin
-	
-	#has_attached_file :logo, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
-	#:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension" #, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-	#has_attached_file :background, :storage => :s3, :bucket => 'launchbox', :s3_credentials => { :access_key_id => 'AKIAIPF5UI3OMTUMT7DQ', 
-	#:secret_access_key => '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' }, :path => ":attachment/:id/:style.:extension"
-
-	
-	
-	
+		
 	private ###################################
 	
 	def create_url

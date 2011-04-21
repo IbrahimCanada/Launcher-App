@@ -1,9 +1,0 @@
-staging:
- access_key_id: [AKIAIPF5UI3OMTUMT7DQ]
- secret_access_key: [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]
- bucket: [launchbox]
- 
-production:
- access_key_id: [AKIAIPF5UI3OMTUMT7DQ]
- secret_access_key: [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]
- bucket: [launchbox]
